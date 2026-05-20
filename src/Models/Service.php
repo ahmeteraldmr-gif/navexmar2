@@ -18,10 +18,15 @@ class Service extends BaseModel {
     public function getAllOrdered($lang = 'tr') {
         $services = $this->all([], 'display_order ASC, created_at DESC');
         
-        // JSON alanlarını decode et
+        // JSON alanlarını decode et ve TR alanları için alias oluştur
         foreach ($services as &$service) {
             $service['features'] = json_decode($service['features'] ?? '[]', true);
             $service['features_en'] = json_decode($service['features_en'] ?? '[]', true);
+            
+            // Views'larda name_tr ve description_tr kullanıldığı için TR alanlarını aliase et
+            $service['name_tr'] = $service['name'];
+            $service['description_tr'] = $service['description'];
+            $service['features_tr'] = $service['features'];
         }
         
         return $services;
@@ -39,6 +44,11 @@ class Service extends BaseModel {
         if ($service) {
             $service['features'] = json_decode($service['features'] ?? '[]', true);
             $service['features_en'] = json_decode($service['features_en'] ?? '[]', true);
+            
+            // Views'larda name_tr ve description_tr kullanıldığı için TR alanlarını aliase et
+            $service['name_tr'] = $service['name'];
+            $service['description_tr'] = $service['description'];
+            $service['features_tr'] = $service['features'];
         }
         
         return $service;
