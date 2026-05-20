@@ -44,6 +44,7 @@ return [
     
     // Admin - Hizmetler
     '/admin/services' => ['controller' => 'AdminController', 'action' => 'services', 'auth' => true],
+    '/admin/services/get/{id}' => ['controller' => 'AdminController', 'action' => 'serviceGet', 'auth' => true],
     '/admin/services/create' => ['controller' => 'AdminController', 'action' => 'serviceCreate', 'auth' => true, 'method' => 'POST'],
     '/admin/services/update' => ['controller' => 'AdminController', 'action' => 'serviceUpdate', 'auth' => true, 'method' => 'POST'],
     '/admin/services/delete/{id}' => ['controller' => 'AdminController', 'action' => 'serviceDelete', 'auth' => true, 'method' => 'POST'],

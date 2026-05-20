@@ -155,6 +155,30 @@ class AdminController extends BaseController {
         }
     }
     
+    /**
+     * Hizmet Detayı Getir (GET) - Admin AJAX için
+     * 
+     * @param int $id Hizmet ID
+     */
+    public function serviceGet($id) {
+        $service = $this->serviceModel->find($id);
+        
+        if (!$service) {
+            $this->jsonError('Hizmet bulunamadı.');
+            return;
+        }
+        
+        // JSON alanlarını decode et
+        $service['features'] = json_decode($service['features'] ?? '[]', true);
+        $service['features_en'] = json_decode($service['features_en'] ?? '[]', true);
+        
+        // TR alias alanları ekle
+        $service['name_tr'] = $service['name'];
+        $service['description_tr'] = $service['description'];
+        
+        $this->jsonSuccess($service, 'Hizmet bulundu.');
+    }
+    
     // ==========================================
     // MESAJLAR YÖNETİMİ
     // ==========================================

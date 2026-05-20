@@ -51,31 +51,9 @@ CREATE TABLE services (
     INDEX idx_slug (slug)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Varsayılan hizmetler
-INSERT INTO services (name, name_en, description, description_en, icon, features, features_en, display_order, slug) VALUES
-('Gemi Üzeri Hizmetler', 'Onboard Services', 
-'Gemilerinizin seferde veya limanda olduğu her durumda, uzman teknisyenlerimiz ile gemi üzerinde tüm bakım ve onarım işlemlerini gerçekleştiriyoruz.',
-'In every situation where your ships are at sea or in port, we perform all maintenance and repair operations on board with our expert technicians.',
-'fas fa-anchor',
-'["Acil onarım hizmetleri", "Makine bakım ve servisi", "Elektrik ve elektronik onarımları", "Güverte ekipmanları bakımı", "HVAC sistem servisi", "Yangın söndürme sistemleri"]',
-'["Emergency repair services", "Machine maintenance and service", "Electrical and electronic repairs", "Deck equipment maintenance", "HVAC system service", "Fire extinguishing systems"]',
-1, 'gemi-uzeri-hizmetler'),
+-- Varsayılan hizmetler (Admin panelinden ekleyin)
+-- Hizmetler boş başlıyor, admin panelinden /admin/services adresinden ekleyebilirsiniz
 
-('Tedarik Hizmetleri', 'Supply Services',
-'Geniş tedarikçi ağımız ile gemileriniz için ihtiyaç duyulan tüm yedek parça, malzeme ve ekipmanları en kısa sürede temin ediyoruz.',
-'With our extensive supplier network, we provide all spare parts, materials and equipment needed for your ships in the shortest time.',
-'fas fa-boxes',
-'["Yedek parça temini", "Teknik malzeme tedariki", "Lojistik organizasyonu", "Gümrük işlemleri", "Hızlı kargo servisi", "Stok yönetimi"]',
-'["Spare parts supply", "Technical material supply", "Logistics organization", "Customs procedures", "Fast cargo service", "Stock management"]',
-2, 'tedarik-hizmetleri'),
-
-('Öngörücü Bakım', 'Predictive Maintenance',
-'Modern teknoloji ve veri analitiği kullanarak gemilerinizin ekipmanlarının durumunu sürekli izliyor ve bakım ihtiyaçlarını önceden planlıyoruz.',
-'Using modern technology and data analytics, we continuously monitor the condition of your ships equipment and plan maintenance needs in advance.',
-'fas fa-chart-line',
-'["Durum izleme sistemleri", "Titreşim analizi", "Yağ analizi", "Termal görüntüleme", "Veri analitiği ve raporlama", "Bakım planlama optimizasyonu"]',
-'["Condition monitoring systems", "Vibration analysis", "Oil analysis", "Thermal imaging", "Data analytics and reporting", "Maintenance planning optimization"]',
-3, 'ongorucu-bakim');
 
 -- ==========================================
 -- 3. MESSAGES TABLOSU
