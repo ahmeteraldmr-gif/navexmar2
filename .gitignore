@@ -1,0 +1,17 @@
+# macOS artefacts
+__MACOSX/
+*.DS_Store
+# zip files
+*.zip
+# XAMPP and dev scripts
+public/clear_cache.php
+public/check-admin.php
+public/fix-*.php
+public/test-*.php
+public/update-*.php
+# IDE/editor folders
+.vscode/
+.idea/
+# Misc temporary files
+*.swp
+logs/
