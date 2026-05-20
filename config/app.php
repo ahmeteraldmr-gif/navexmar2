@@ -32,19 +32,10 @@ if (APP_ENV === 'local') {
     $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
     $host = $_SERVER['HTTP_HOST'] ?? 'navexmar.com';
     
-    // Eğer URL'de /public/ varsa (Document Root ayarlanmamışsa)
-    $requestUri = $_SERVER['REQUEST_URI'] ?? '';
-    if (strpos($requestUri, '/public/') !== false) {
-        // /public/ ile erişiliyorsa
-        define('BASE_URL', $protocol . '://' . $host . '/public');
-        define('ASSETS_URL', $protocol . '://' . $host . '/public/assets');
-        define('UPLOADS_URL', $protocol . '://' . $host . '/public/uploads');
-    } else {
-        // Document Root /public/ klasörüne işaret ediyorsa (ideal durum) veya .htaccess yönlendirmesi varsa
-        define('BASE_URL', $protocol . '://' . $host);
-        define('ASSETS_URL', BASE_URL . '/assets');
-        define('UPLOADS_URL', BASE_URL . '/uploads');
-    }
+    // Production için sabit URL tanımları
+    define('BASE_URL', $protocol . '://' . $host);
+    define('ASSETS_URL', BASE_URL . '/assets');
+    define('UPLOADS_URL', BASE_URL . '/uploads');
 }
 
 // Dil ayarları
