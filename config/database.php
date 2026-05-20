@@ -35,8 +35,8 @@ function detectEnvironment() {
     return $isLocal ? 'local' : 'production';
 }
 
-// Ortam
-define('APP_ENV', detectEnvironment());
+// Ortam her koşulda sunucuya (production) göre ayarlandı
+define('APP_ENV', 'production');
 
 // Veritabanı ayarları
 if (APP_ENV === 'local') {
@@ -51,7 +51,7 @@ if (APP_ENV === 'local') {
     define('DB_HOST', 'localhost');
     define('DB_PORT', '3306');
     define('DB_USER', 'navexmar_admin');
-    define('DB_PASS', 'Abozoglan01.');
+    define('DB_PASS', 'Abozoglan01');
     define('DB_NAME', 'navexmar_navex');
 }
 
